@@ -31,6 +31,13 @@
 				font-family: rubik;
 			}
 
+			/* .container {
+    max-width: 1140px; 
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px; 
+    padding-right: 15px; 
+} */
 			
 			
 			#card-preview {
@@ -131,6 +138,7 @@
 
             #logo {
                 width: 80px;
+				margin-right: 10px;
                 
             }
 
@@ -151,17 +159,23 @@
 			}
 
             .navbar {
-                background: rgb(14,23,40);
-                background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%);
-
+                /* background: rgb(14,23,40);
+                background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%); */
+				background: rgb(14,23,40);
+    background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%);
+    display: flex;
+    align-items: center;
+    padding: 0; /* Remove default padding/margin */
+				height: 50px;
             }
 
 			.nav-div {
 				display: flex;
-				justify-content: center;
+				justify-content: flex-start;
 				align-items: center;
 				margin-right: 10%;
 				margin-left: 5%;
+				
 			}
 
 			/* .divider {
@@ -175,9 +189,14 @@
             .title {
                 color: #a47f4e;
                 font-family: josefin sans;
-                font-size: 18px;
+                font-size: 20px;
 				text-transform: uppercase;
-				padding-top: 10px;
+				
+			}
+
+			p {
+				font-family: rubik;
+				font-size: 12px;
 			}
 
             .form-label {
@@ -263,22 +282,24 @@
 
 	<body >
 		<nav class="navbar navbar-expand-lg navbar ">
-			<div class=" nav-div container col-md-12">
+			<div class=" nav-div container col-md-6 ">
 				<img src="contracting-empire-logo.png" alt="contracting empire logo" id="logo"/>
 				<span class="divider"></span>
-				<span class="navbar-text title  ">Review Card Generator</span>
+				<!-- <span class="navbar-text title  ">Review Card Generator</span> -->
 			</div>
 		</nav>
 
 		
         
 		<div class="container my-5">
-
+			<h1 class=" title">Review Card Generator</h1>
+			
 			<div class="row">
 				<!-- Form Section -->
 				<div class="col-md-8">
 					<form id="qr-form">
 						<div class="mb-4">
+							<p>Easily generate a professional review card for your customers to provide Google ratings. Follow the quick steps below to create a card that boosts your online reputation and encourages customer feedback!</p>
 							<span class="steps mb-2">1</span>
 							<label for="url" class="form-label">Enter Your Google Review URL:</label>
 							<input
