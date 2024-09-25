@@ -163,20 +163,23 @@
                 background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%); */
 				background: rgb(14,23,40);
     background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%);
-    display: flex;
+    /* display: flex;
     align-items: center;
-    padding: 0; /* Remove default padding/margin */
-				height: 50px;
+	justify-content: flex-start;
+    
+				height: 50px; */
+				
             }
 
-			.nav-div {
+			/* .nav-div {
 				display: flex;
-				justify-content: flex-start;
+				justify-content: start;
 				align-items: center;
 				margin-right: 10%;
 				margin-left: 5%;
 				
-			}
+				
+			} */
 
 			/* .divider {
 					display: inline-block;
@@ -272,7 +275,7 @@
 				}
 
 				.navbar {
-					padding-top: 20px;
+					padding-bottom: 10px;
 				}
 
 				/* Adjust other elements as needed for mobile */
@@ -281,25 +284,30 @@
 	</head>
 
 	<body >
-		<nav class="navbar navbar-expand-lg navbar ">
+		<!-- <nav class="navbar navbar-expand-lg navbar ">
 			<div class=" nav-div container col-md-6 ">
 				<img src="contracting-empire-logo.png" alt="contracting empire logo" id="logo"/>
 				<span class="divider"></span>
-				<!-- <span class="navbar-text title  ">Review Card Generator</span> -->
 			</div>
-		</nav>
+		</nav> -->
+
+		<ul class="nav navbar ">
+			<li class="nav-item nav-div container ">
+				<img src="contracting-empire-logo.png" alt="contracting empire logo" id="logo"/>
+			</li>
+		</ul>
 
 		
         
 		<div class="container my-5">
-			<h1 class=" title">Review Card Generator</h1>
+			<h1 class=" title mb-3">Review Card Generator</h1>
 			
 			<div class="row">
 				<!-- Form Section -->
 				<div class="col-md-8">
 					<form id="qr-form">
 						<div class="mb-4">
-							<p>Easily generate a professional review card for your customers to provide Google ratings. Follow the quick steps below to create a card that boosts your online reputation and encourages customer feedback!</p>
+							<p class="mb-4">Easily generate a professional review card for your customers to provide Google ratings. Follow the quick steps below to create a card that boosts your online reputation and encourages customer feedback!</p>
 							<span class="steps mb-2">1</span>
 							<label for="url" class="form-label">Enter Your Google Review URL:</label>
 							<input
