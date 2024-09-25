@@ -31,11 +31,12 @@
 				font-family: rubik;
 				padding: 0;
 				margin:0;
+				font-size: 20px;
 			}
 
 			#card-preview {
-				width: 250px;
-				height: 427px;
+				width: 280px;
+				height: 457px;
 				position: relative;
 				border: 1px solid #ccc;
 				margin-top: 20px;
@@ -50,6 +51,8 @@
 				top: 0;
 				left: 0;
 			}
+
+			
 
 			#logo-preview {
 				position: absolute;
@@ -132,7 +135,7 @@
             #logo {
                 width: 125px;
 				margin-right: 10px;
-                
+                padding-left: 10px;
             }
 
 			.form-control {
@@ -140,7 +143,6 @@
 				width: 100%;
 				height: calc(1.5em + .75rem + 2px);
 				margin-left: 10px;
-				font-size: 1rem;
 				font-weight: 400;
 				line-height: 1.5;
 				color: #495057;
@@ -187,18 +189,19 @@
                 font-family: josefin sans;
                 font-size: 38px;
 				text-transform: uppercase;
-				
+				padding-left: 10px;
 			}
 
 			p {
 				font-family: rubik;
-				font-size: 18px;
+				font-size: 24px;
+				padding-left: 10px;
 			}
 
             .form-label {
                 font-family: rubik;
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 20px;
             }
 
             input {
@@ -209,22 +212,23 @@
             .bttn {
                 display: inline-block;
 				font-family: "Josefin Sans", Sans-serif;
-				font-size: 10px;
+				font-size: 16px;
 				text-transform: uppercase;
 				letter-spacing: 1.2px;
 				fill: #FFFFFF;
-				color: #FFFFFF;
+				color: #000000;
 				background-color: transparent;
-				background-image: radial-gradient(at center center, #CFAD73 0%, #926B3E 100%);
+				background-image: radial-gradient(at center center, #ffeaa2 0%, #b18c5b 100%);
 				border-style: none;
 				border-radius: 5px;
 				box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
 				padding-top: 10px;
+				height: 50px;
             }
 
 			.bttn:hover {
-				color: #ffffff;
-				background-image: radial-gradient(at center center, #dec985 0%, #a17b50 100%);
+				color: #000000;
+				background-image: radial-gradient(at center center,#ffeaa2 0%, #cfad85 100%);
 				transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 				transform: translateY(1px);
 				box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.15);
@@ -241,12 +245,13 @@
 					border-radius: 50%;
 					font-family: rubik;
 					margin-right: 10px;
-					margin-left: 10px;
+					
 				}
 
 				hr {
 					width: 10%;
 					border-top: 1px solid #10235a;
+					padding-left: 10px;
 				}
 
 			/* Media Query for Mobile Devices */
@@ -305,8 +310,8 @@
 				<div class="col-md-8">
 					<form id="qr-form">
 						<div class="mb-4">
-							<p class="mb-4">Follow the quick steps below to create and download a professional Google review card. Print it at any local printing shop and start using them to increase your online reputation!</p>
-							<span class="steps mb-2">1</span>
+							<p class="mb-4">Follow the quick steps below to create and download a professional Google review cards. Print them at any local printing shop and start using them to increase your online reputation!</p>
+							<span class="steps mb-2 mt-2 ms-2">1</span>
 							<label for="url" class="form-label">Enter Your Google Review URL:</label>
 							<input
 								type="text"
@@ -319,7 +324,7 @@
 						</div>
 
 						<div class="mb-3">
-							<span class="steps">2</span>
+							<span class="steps mt-2 ms-2">2</span>
 							<label class="form-label">Select Design:</label>
 							<div class="design-options-container">
 								<!-- Design Option 1 -->
@@ -393,7 +398,7 @@
 
 						<!-- Logo Upload Field -->
 						<div id="logo-upload-section" class="mb-3" style="display: none">
-							<span class="steps mb-2">3</span>
+							<span class="steps mb-2 ms-2">3</span>
 							<label for="logo-upload" class="form-label"
 								>Upload Your Logo (PNG, JPG):</label
 							>
@@ -407,7 +412,7 @@
 
 						<!-- Website URL Input Field -->
 						<div class="mb-3" id="website-input-section">
-							<span class="steps mb-2">3</span>
+							<span class="steps mb-2 ms-2">3</span>
 							<label for="website-text" class="form-label"
 								>Enter Your Website URL</label
 							>
@@ -442,7 +447,7 @@
 						<div id="website-preview"></div>
 					</div>
 					<!-- Download button -->
-					<div class="d-flex justify-content-center align-items-center mt">
+					<div class="d-flex justify-content-center align-items-center">
 						<span class="steps mt-3">4</span>
 						<button
 						id="download-btn"
