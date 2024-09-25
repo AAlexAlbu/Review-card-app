@@ -339,7 +339,7 @@
 									/>
 									<label for="design1">
 										<img src="Review cards-01.png" alt="Design 1" />
-										<small class="d-block text-center mt-1">Design 1</small>
+										<small class="d-block text-center mt-2 fs-6">Ash Gray With Website</small>
 									</label>
 								</div>
 								<!-- Design Option 2 -->
@@ -352,7 +352,7 @@
 									/>
 									<label for="design2">
 										<img src="Review cards-02.png" alt="Design 2" />
-										<small class="d-block text-center mt-1">Design 2</small>
+										<small class="d-block text-center mt-2 fs-6">Bold Blue With Website</small>
 									</label>
 								</div>
 								<!-- Design Option 3 -->
@@ -365,7 +365,7 @@
 									/>
 									<label for="design3">
 										<img src="Review cards-03.png" alt="Design 3" />
-										<small class="d-block text-center mt-1">Design 3</small>
+										<small class="d-block text-center mt-2 fs-6">Golden Touch With Logo</small>
 									</label>
 								</div>
 								<!-- Design Option 4 -->
@@ -378,7 +378,7 @@
 									/>
 									<label for="design4">
 										<img src="Review cards-04.png" alt="Design 4" />
-										<small class="d-block text-center mt-1">Design 4</small>
+										<small class="d-block text-center mt-2 fs-6">Graphite  Gray with Logo</small>
 									</label>
 								</div>
 								<!-- Design Option 5 -->
@@ -391,7 +391,7 @@
 									/>
 									<label for="design5">
 										<img src="Review cards-05.png" alt="Design 5" />
-										<small class="d-block text-center mt-1">Design 5</small>
+										<small class="d-block text-center mt-2 fs-6">Arctic White With Logo</small>
 									</label>
 								</div>
 							</div>
@@ -476,47 +476,48 @@
 
 		<script>
 			const qrcodeDiv = document.getElementById("qrcode");
-			const cardBackground = document.getElementById("card-background");
-			const downloadBtn = document.getElementById("download-btn");
-			const logoUploadSection = document.getElementById("logo-upload-section");
-			const logoUploadInput = document.getElementById("logo-upload");
-			const logoPreview = document.getElementById("logo-preview");
-			const urlInput = document.getElementById("url");
-			const websiteInputSection = document.getElementById(
-				"website-input-section"
-			);
-			const websiteTextInput = document.getElementById("website-text");
-			const websitePreview = document.getElementById("website-preview");
+const cardBackground = document.getElementById("card-background");
+const downloadBtn = document.getElementById("download-btn");
+const logoUploadSection = document.getElementById("logo-upload-section");
+const logoUploadInput = document.getElementById("logo-upload");
+const logoPreview = document.getElementById("logo-preview");
+const urlInput = document.getElementById("url");
+const websiteInputSection = document.getElementById("website-input-section");
+const websiteTextInput = document.getElementById("website-text");
+const websitePreview = document.getElementById("website-preview");
 
-			let highResQRCodeDataURL = "";
-			let logoDataURL = "";
-			let qrCode;
-			let designSupportsLogo = false;
+let highResQRCodeDataURL = "";
+let logoDataURL = "";
+let qrCode;
+let designSupportsLogo = false;
 
-			const designRadios = document.getElementsByName("design");
+const designRadios = document.getElementsByName("design");
 
-			Array.from(document.getElementsByName("design")).forEach((radio) => {
-				radio.checked = false;
-			});
-
-			// Clear the card preview initially
-			cardBackground.src = ""; // No design is pre-selected
-
-			
+// On page load
 window.addEventListener("load", function() {
-    cardBackground.style.opacity = "0"; // Image is hidden
+    // Select "Design 1" by default
+    const defaultDesign = document.getElementById("design1");
+    defaultDesign.checked = true;
+    
+    // Update the card background and show the website input section
+    cardBackground.src = defaultDesign.value;
+    cardBackground.style.opacity = "1"; // Make the image visible
+    
+    websiteInputSection.style.display = "block";
+    websitePreview.style.display = "block";
+
+    // Generate QR code for default URL
+    const defaultURL = urlInput.value.trim();
+    if (defaultURL) {
+        generateQRCode(defaultURL);
+        generateHighResQRCode(defaultURL);
+        downloadBtn.style.display = "inline-block";
+    }
 });
 
 // When a design is selected, make the background visible
 Array.from(designRadios).forEach((radio) => {
     radio.addEventListener("change", function() {
-        cardBackground.src = radio.value; // Update the image source
-        cardBackground.style.opacity = "1"; // Make the image visible
-    });
-});
-
-			Array.from(designRadios).forEach((radio) => {
-    radio.addEventListener("change", function () {
         designSupportsLogo =
             radio.id === "design3" ||
             radio.id === "design4" ||
@@ -547,205 +548,194 @@ Array.from(designRadios).forEach((radio) => {
     });
 });
 
+logoUploadInput.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            logoDataURL = event.target.result;
+            if (designSupportsLogo) {
+                logoPreview.src = logoDataURL;
+                logoPreview.style.display = "block";
+            }
+        };
+        reader.readAsDataURL(file);
+    } else {
+        alert("Please upload a valid PNG or JPEG image.");
+        logoUploadInput.value = "";
+    }
+});
 
-			logoUploadInput.addEventListener("change", function (e) {
-				const file = e.target.files[0];
-				if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
-					const reader = new FileReader();
-					reader.onload = function (event) {
-						logoDataURL = event.target.result;
-						//
-						if (designSupportsLogo) {
-							logoPreview.src = logoDataURL;
-							logoPreview.style.display = "block";
-						}
-					};
-					reader.readAsDataURL(file);
-				} else {
-					alert("Please upload a valid PNG or JPEG image.");
-					logoUploadInput.value = "";
-				}
-			});
+websiteTextInput.addEventListener("input", function () {
+    websitePreview.textContent = websiteTextInput.value.trim();
+});
 
-			websiteTextInput.addEventListener("input", function () {
-				websitePreview.textContent = websiteTextInput.value.trim();
-			});
+function generateQRCode(url) {
+    qrcodeDiv.innerHTML = "";
+    const qrSize = 118;
+    qrCode = new QRCode(qrcodeDiv, {
+        text: url,
+        width: qrSize,
+        height: qrSize,
+        correctLevel: QRCode.CorrectLevel.H,
+    });
+}
 
-			function generateQRCode(url) {
-				qrcodeDiv.innerHTML = "";
-				const qrSize = 118;
-				qrCode = new QRCode(qrcodeDiv, {
-					text: url,
-					width: qrSize,
-					height: qrSize,
-					correctLevel: QRCode.CorrectLevel.H,
-				});
-			}
+urlInput.addEventListener("input", function () {
+    const url = urlInput.value.trim();
+    if (url) {
+        generateQRCode(url);
+        generateHighResQRCode(url);
+        downloadBtn.style.display = "inline-block";
+    } else {
+        qrcodeDiv.innerHTML = "";
+        downloadBtn.style.display = "none";
+        highResQRCodeDataURL = "";
+    }
+});
 
-			urlInput.addEventListener("input", function () {
-				const url = urlInput.value.trim();
-				if (url) {
-					generateQRCode(url);
-					generateHighResQRCode(url);
-					downloadBtn.style.display = "inline-block";
-				} else {
-					qrcodeDiv.innerHTML = "";
-					downloadBtn.style.display = "none";
-					highResQRCodeDataURL = "";
-				}
-			});
+async function generateHighResQRCode(url) {
+    if (!url) {
+        highResQRCodeDataURL = "";
+        return;
+    }
 
-			window.addEventListener("load", function () {
-				const defaultURL = urlInput.value.trim();
-				if (defaultURL) {
-					generateQRCode(defaultURL);
-					generateHighResQRCode(defaultURL);
-					downloadBtn.style.display = "inline-block";
-				}
-			});
+    return new Promise((resolve, reject) => {
+        const hiddenDiv = document.createElement("div");
+        hiddenDiv.style.display = "none";
+        document.body.appendChild(hiddenDiv);
 
-			async function generateHighResQRCode(url) {
-				if (!url) {
-					highResQRCodeDataURL = "";
-					return;
-				}
+        const dpi = 300;
+        const inchToPx = dpi;
+        const canvasWidth = 2.12 * inchToPx;
+        const qrSize = (118 / 250) * canvasWidth;
 
-				return new Promise((resolve, reject) => {
-					const hiddenDiv = document.createElement("div");
-					hiddenDiv.style.display = "none";
-					document.body.appendChild(hiddenDiv);
+        new QRCode(hiddenDiv, {
+            text: url,
+            width: qrSize,
+            height: qrSize,
+            correctLevel: QRCode.CorrectLevel.H,
+        });
 
-					const dpi = 300;
-					const inchToPx = dpi;
-					const canvasWidth = 2.12 * inchToPx;
-					const qrSize = (118 / 250) * canvasWidth;
+        setTimeout(() => {
+            try {
+                const qrCanvas = hiddenDiv.querySelector("canvas");
+                if (qrCanvas) {
+                    highResQRCodeDataURL = qrCanvas.toDataURL("image/png");
+                    document.body.removeChild(hiddenDiv);
+                    resolve();
+                } else {
+                    throw new Error("QR code canvas not found.");
+                }
+            } catch (error) {
+                console.error("Error generating high-res QR code:", error);
+                reject(error);
+            }
+        }, 500);
+    });
+}
 
-					new QRCode(hiddenDiv, {
-						text: url,
-						width: qrSize,
-						height: qrSize,
-						correctLevel: QRCode.CorrectLevel.H,
-					});
+downloadBtn.addEventListener("click", async function () {
+    const url = urlInput.value.trim();
+    const websiteText = websiteTextInput.value.trim();
 
-					setTimeout(() => {
-						try {
-							const qrCanvas = hiddenDiv.querySelector("canvas");
-							if (qrCanvas) {
-								highResQRCodeDataURL = qrCanvas.toDataURL("image/png");
-								document.body.removeChild(hiddenDiv);
-								resolve();
-							} else {
-								throw new Error("QR code canvas not found.");
-							}
-						} catch (error) {
-							console.error("Error generating high-res QR code:", error);
-							reject(error);
-						}
-					}, 500);
-				});
-			}
+    if (!highResQRCodeDataURL || !url) {
+        alert("Please enter a valid URL to generate the QR code.");
+        return;
+    }
 
-			downloadBtn.addEventListener("click", async function () {
-				const url = urlInput.value.trim();
-				const websiteText = websiteTextInput.value.trim();
+    const dpi = 300;
+    const inchToPx = dpi;
+    const canvasWidth = 2.12 * inchToPx;
+    const canvasHeight = 3.62 * inchToPx;
 
-				if (!highResQRCodeDataURL || !url) {
-					alert("Please enter a valid URL to generate the QR code.");
-					return;
-				}
+    const canvas = document.createElement("canvas");
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    const ctx = canvas.getContext("2d");
 
-				const dpi = 300;
-				const inchToPx = dpi;
-				const canvasWidth = 2.12 * inchToPx;
-				const canvasHeight = 3.62 * inchToPx;
+    const backgroundImg = new Image();
+    backgroundImg.crossOrigin = "Anonymous";
+    backgroundImg.src = cardBackground.src;
+    backgroundImg.onload = function () {
+        ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
 
-				const canvas = document.createElement("canvas");
-				canvas.width = canvasWidth;
-				canvas.height = canvasHeight;
-				const ctx = canvas.getContext("2d");
+        if (designSupportsLogo && logoDataURL) {
+            const logoImg = new Image();
+            logoImg.src = logoDataURL;
+            logoImg.onload = function () {
+                const logoMaxWidth = canvasWidth * 0.7;
+                const logoMaxHeight = canvasHeight * 0.15;
+                let logoWidth = logoImg.width;
+                let logoHeight = logoImg.height;
 
-				const backgroundImg = new Image();
-				backgroundImg.crossOrigin = "Anonymous";
-				backgroundImg.src = cardBackground.src;
-				backgroundImg.onload = function () {
-					ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+                const widthRatio = logoMaxWidth / logoWidth;
+                const heightRatio = logoMaxHeight / logoHeight;
+                const minRatio = Math.min(widthRatio, heightRatio);
 
-					if (designSupportsLogo && logoDataURL) {
-						const logoImg = new Image();
-						logoImg.src = logoDataURL;
-						logoImg.onload = function () {
-							// Using the same calculation logic as the preview
-							const logoMaxWidth = canvasWidth * 0.7;
-							const logoMaxHeight = canvasHeight * 0.15;
-							let logoWidth = logoImg.width;
-							let logoHeight = logoImg.height;
+                logoWidth *= minRatio;
+                logoHeight *= minRatio;
 
-							const widthRatio = logoMaxWidth / logoWidth;
-							const heightRatio = logoMaxHeight / logoHeight;
-							const minRatio = Math.min(widthRatio, heightRatio);
+                const logoX = (canvasWidth - logoWidth) / 2;
+                const logoY = canvasHeight * 0.07;
+                ctx.drawImage(logoImg, logoX, logoY, logoWidth, logoHeight);
 
-							logoWidth *= minRatio;
-							logoHeight *= minRatio;
+                drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
+            };
+        } else {
+            drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
+        }
+    };
 
-							const logoX = (canvasWidth - logoWidth) / 2;
-							const logoY = canvasHeight * 0.07; // 7% from the top, consistent with preview
-							ctx.drawImage(logoImg, logoX, logoY, logoWidth, logoHeight);
+    function drawQRCode(ctx, canvasWidth, canvasHeight, websiteText) {
+        const qrImg = new Image();
+        qrImg.crossOrigin = "Anonymous";
+        qrImg.src = highResQRCodeDataURL;
+        qrImg.onload = async function () {
+            const qrSize = (118 / 250) * canvasWidth;
+            const qrX = (canvasWidth - qrSize) / 2;
+            const qrY = (canvasHeight - qrSize) / 2;
+            ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
 
-							drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
-						};
-					} else {
-						drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
-					}
-				};
+            if (websiteText) {
+                ctx.font = "400 25px Manrope";
+                ctx.textAlign = "center";
+                ctx.fillStyle = "#ffffff";
+                ctx.fillText(websiteText, canvasWidth / 2, canvasHeight * 0.94);
+            }
 
-				function drawQRCode(ctx, canvasWidth, canvasHeight, websiteText) {
-					const qrImg = new Image();
-					qrImg.crossOrigin = "Anonymous";
-					qrImg.src = highResQRCodeDataURL;
-					qrImg.onload = async function () {
-						const qrSize = (118 / 250) * canvasWidth; // Keeping the QR code size proportional
-						const qrX = (canvasWidth - qrSize) / 2;
-						const qrY = (canvasHeight - qrSize) / 2;
-						ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
+            const imgData = canvas.toDataURL("image/png", 1.0);
+            const pdfDoc = await PDFLib.PDFDocument.create();
 
-						if (websiteText) {
-							ctx.font = "400 25px Manrope";
-							ctx.textAlign = "center";
-							ctx.fillStyle = "#ffffff";
-							ctx.fillText(websiteText, canvasWidth / 2, canvasHeight * 0.94); // 6% from the bottom, consistent with preview
-						}
+            const pageWidth = 2.12 * 72;
+            const pageHeight = 3.62 * 72;
 
-						const imgData = canvas.toDataURL("image/png", 1.0);
-						const pdfDoc = await PDFLib.PDFDocument.create();
+            const page = pdfDoc.addPage([pageWidth, pageHeight]);
 
-						const pageWidth = 2.12 * 72;
-						const pageHeight = 3.62 * 72;
+            const pngImage = await pdfDoc.embedPng(imgData);
 
-						const page = pdfDoc.addPage([pageWidth, pageHeight]);
+            page.drawImage(pngImage, {
+                x: 0,
+                y: 0,
+                width: pageWidth,
+                height: pageHeight,
+            });
 
-						const pngImage = await pdfDoc.embedPng(imgData);
+            const pdfBytes = await pdfDoc.save();
 
-						page.drawImage(pngImage, {
-							x: 0,
-							y: 0,
-							width: pageWidth,
-							height: pageHeight,
-						});
+            const blob = new Blob([pdfBytes], { type: "application/pdf" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "business_card.pdf";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        };
+    }
+});
 
-						const pdfBytes = await pdfDoc.save();
-
-						const blob = new Blob([pdfBytes], { type: "application/pdf" });
-						const url = URL.createObjectURL(blob);
-						const a = document.createElement("a");
-						a.href = url;
-						a.download = "business_card.pdf";
-						document.body.appendChild(a);
-						a.click();
-						document.body.removeChild(a);
-						URL.revokeObjectURL(url);
-					};
-				}
-			});
 		</script>
 	</body>
 </html>
