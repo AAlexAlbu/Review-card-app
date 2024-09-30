@@ -104,7 +104,7 @@
 
 			.design-options-container {
 				display: flex;
-				flex-wrap: nowrap;
+				flex-wrap: wrap;
 				justify-content: space-between;
 			}
 
@@ -284,6 +284,8 @@
 
 				/* Adjust other elements as needed for mobile */
 			}
+
+			
 		</style>
 	</head>
 
@@ -306,12 +308,33 @@
 		<div class="container my-5">
 			<h1 class=" title mb-3">Review Card Generator</h1>
 			<hr>
+			<div class="card mb-3 " style="max-width: 1230px; background-color: #eae8e8; border: none;">
+				<div class="row g-0">
+					<div class="col-md-6">
+						<div class="card-body">
+						  <p class="card-text m-0 p-0">We just dropped the ultimate review card generator for contractors - 5 killer designs, instant QR code magic, and it's ALL YOURS. No catch, no cost - just a downloadable PDF you can take to the print shop. <br> <br>Watch this quick video to see how easy it is to get more 5-star reviews (and look insanely professional doing it).</p>
+						</div>
+					  </div>
+				  <div class="col-md-6 d-flex justify-content-end">
+					<iframe width="600" height="315"
+								src="https://www.youtube.com/embed/tgbNymZ7vqY">
+								</iframe>
+				  </div>
+				  
+				</div>
+			  </div>
 			<div class="row">
 				<!-- Form Section -->
 				<div class="col-md-8">
 					<form id="qr-form">
 						<div class="mb-4">
-							<p class="mb-4">Follow the quick steps below to create and download professional Google review cards. Print them at any local printing shop and start using them to increase your online reputation!</p>
+							<!-- <div class="col-md-12 d-flex">
+								<p class="mb-4 col-md-6 me-3">Follow the quick steps below to create and download professional Google review cards. Print them at any local printing shop and start using them to increase your online reputation!</p>
+								<iframe width="420" height="315" class="col-md-6"
+								src="https://www.youtube.com/embed/tgbNymZ7vqY">
+								</iframe>
+								
+							</div> -->
 							<span class="steps mb-2 mt-2 ms-2">1</span>
 							<label for="url" class="form-label">Enter Your Google Review URL:</label>
 							<input
