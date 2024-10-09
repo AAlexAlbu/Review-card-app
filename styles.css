@@ -226,5 +226,11 @@ input {
         padding-top: 20px;
     }
 
+    .form-label {
+        font-family: rubik;
+        font-weight: 400;
+        font-size: 19px;
+    }
+
 }
 
