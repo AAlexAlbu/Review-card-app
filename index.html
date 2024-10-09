@@ -14,329 +14,77 @@
 			rel="stylesheet"
 		/>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">  
-		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
-
-
-		<style>
-
-			body {
-				
-				background: #eae8e8;
-				font-family: rubik;
-				padding: 0;
-				margin:0;
-				font-size: 20px;
-			}
-
-			#card-preview {
-				width: 280px;
-				height: 457px;
-				position: relative;
-				border: 1px solid #ccc;
-				margin-top: 20px;
-				overflow: hidden;
-				background-color: #fff;
-			}
-
-			#card-background {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
-
-			
-
-			#logo-preview {
-				position: absolute;
-				top: 7%;
-				left: 50%;
-				transform: translateX(-50%);
-				max-width: 70%;
-				max-height: 15%;
-				display: none;
-			}
-
-			#qrcode {
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-				width: 118px;
-				height: 118px;
-			}
-
-			#guide-overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				pointer-events: none;
-			}
-
-			.design-option img {
-				border: 1px solid #ddd;
-				border-radius: 4px;
-				padding: 2px;
-				width: 150px;
-			}
-
-			.design-option input[type="radio"] {
-				display: none;
-			}
-
-			.design-option input[type="radio"]:checked + label img {
-				border-color: #a47f4e;
-			}
-
-			.design-option label {
-				display: block;
-				text-align: center;
-			}
-
-			.design-options-container {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-			}
-
-			.design-option {
-				flex: 1 1 calc(20% - 10px);
-				margin: 5px;
-				text-align: center;
-			}
-
-			#website-input-section {
-				display: none;
-				margin-top: 10px;
-			}
-
-			#website-preview {
-				position: absolute;
-				bottom: 6%;
-				left: 50%;
-				transform: translateX(-50%);
-				font-family: "Manrope", sans-serif;
-				font-size: 10px;
-				font-weight: 400;
-				text-align: center;
-				width: 100%;
-				color: #ffffff;
-			}
-
-            #logo {
-                width: 125px;
-				margin-right: 10px;
-                padding-left: 10px;
-            }
-
-			.form-control {
-				display: block;
-				width: 100%;
-				height: calc(1.5em + .75rem + 2px);
-				margin-left: 10px;
-				font-weight: 400;
-				line-height: 1.5;
-				color: #495057;
-				background-color: #fff;
-				background-clip: padding-box;
-				border: 1px solid #ced4da;
-				border-radius: .25rem;
-				transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-			}
-
-            .navbar {
-                /* background: rgb(14,23,40);
-                background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%); */
-				background: rgb(14,23,40);
-    background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%);
-    /* display: flex;
-    align-items: center;
-	justify-content: flex-start;
-     */
-				height:80px;
-				
-            }
-
-			/* .nav-div {
-				display: flex;
-				justify-content: start;
-				align-items: center;
-				margin-right: 10%;
-				margin-left: 5%;
-				
-				
-			} */
-
-			/* .divider {
-					display: inline-block;
-					width: 0.5px; 
-					background-color: #a47f4e; 
-					margin: 0 10px; 
-					vertical-align: middle; 
-				} */
-
-            .title {
-                color: #a47f4e;
-                font-family: josefin sans;
-                font-size: 38px;
-				text-transform: uppercase;
-				padding-left: 10px;
-			}
-
-			p {
-				font-family: rubik;
-				font-size: 20px;
-				padding-left: 10px;
-			}
-
-            .form-label {
-                font-family: rubik;
-                font-weight: 400;
-                font-size: 20px;
-            }
-
-            input {
-                font-family: rubik;
-                font-weight: 400;
-            }
-
-            .bttn {
-                display: inline-block;
-				font-family: "Josefin Sans", Sans-serif;
-				font-size: 16px;
-				text-transform: uppercase;
-				letter-spacing: 1.2px;
-				fill: #FFFFFF;
-				color: #000000;
-				background-color: transparent;
-				background-image: radial-gradient(at center center, #ffeaa2 0%, #b18c5b 100%);
-				border-style: none;
-				border-radius: 5px;
-				box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
-				padding-top: 10px;
-				height: 50px;
-            }
-
-			.bttn:hover {
-				color: #000000;
-				background-image: radial-gradient(at center center,#ffeaa2 0%, #cfad85 100%);
-				transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-				transform: translateY(1px);
-				box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.15);
-			}
-
-			.steps {
-					color: #ffffff;
-					display: inline-block; 
-					width: 30px;
-					height: 30px;   
-					text-align: center;   
-					line-height: 30px;   
-					background-color: #1d2d5e;
-					border-radius: 50%;
-					font-family: rubik;
-					margin-right: 10px;
-					
-				}
-
-				hr {
-					width: 10%;
-					border-top: 1px solid rgb(16, 35, 90, 0.25);
-					margin-left: 10px;
-					opacity: 100%;
-				}
-
-			/* Media Query for Mobile Devices */
-			@media (max-width: 767px) {
-				/* .design-options-container {
-					flex-direction: column;
-					align-items: center;
-				} */
-
-
-				/* .design-option {
-					flex: 1 1 100%;
-					margin: 10px 0;
-				} */
-
-				.col-md-8,
-				.col-md-4 {
-					flex: 1 1 100%;
-					max-width: 100%;
-				}
-
-				#card-preview {
-					margin: 20px auto; /* Center the preview on mobile */
-				}
-
-				.navbar {
-					padding-bottom: 10px;
-				}
-
-				/* Adjust other elements as needed for mobile */
-			}
-
-			
-		</style>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 
-	<body >
-		<!-- <nav class="navbar navbar-expand-lg navbar ">
-			<div class=" nav-div container col-md-6 ">
-				<img src="contracting-empire-logo.png" alt="contracting empire logo" id="logo"/>
-				<span class="divider"></span>
-			</div>
-		</nav> -->
+	<body>
 
-		<ul class="nav navbar ">
-			<li class="nav-item nav-div container ">
-				<img src="contracting-empire-logo.png" alt="contracting empire logo" id="logo"/>
+		<ul class="nav navbar">
+			<li class="nav-item nav-div container">
+				<img
+					src="contracting-empire-logo.png"
+					alt="contracting empire logo"
+					id="logo"
+				/>
 			</li>
 		</ul>
 
-		
-        
 		<div class="container my-5">
-			<h1 class=" title mb-3">Review Card Generator</h1>
-			<hr>
-			<div class="card mb-3 " style="max-width: 1230px; background-color: #eae8e8; border: none;">
+			<div
+				class="card mb-3"
+				style="max-width: 1230px; background-color: #eae8e8; border: none"
+			>
 				<div class="row g-0">
 					<div class="col-md-6">
-						<div class="card-body">
-						  <p class="card-text m-0 p-0">We just dropped the ultimate review card generator for contractors - 5 killer designs, instant QR code magic, and it's ALL YOURS. No catch, no cost - just a downloadable PDF you can take to the print shop. <br> <br>Watch this quick video to see how easy it is to get more 5-star reviews (and look insanely professional doing it).</p>
+						<div class="card-body ps-0">
+							<h1 class="title mb-3">Review Card Generator</h1>
+							<hr />
+							<p class="card-text m-0 p-0">
+								We just dropped the ultimate review card generator for
+								contractors - 5 killer designs, instant QR code magic, and it's
+								ALL YOURS. No catch, no cost - just a downloadable PDF you can
+								take to the print shop. <br />
+								<br />Watch this quick video to see how easy it is to get more
+								5-star reviews (and look insanely professional doing it).
+							</p>
 						</div>
-					  </div>
-				  <div class="col-md-6 d-flex justify-content-end ">
-					<iframe width="600" height="315"
-								src="https://www.youtube.com/embed/tgbNymZ7vqY">
-								</iframe>
-				  </div>
-				  
+					</div>
+					<div class="col-md-6 d-flex justify-content-end card-body pe-0">
+						<iframe
+							width="600"
+							height="315"
+							src="https://www.youtube.com/embed/tgbNymZ7vqY"
+							class="video"
+						>
+						</iframe>
+					</div>
 				</div>
-			  </div>
+			</div>
 			<div class="row">
 				<!-- Form Section -->
 				<div class="col-md-8">
 					<form id="qr-form">
 						<div class="mb-4">
-							<!-- <div class="col-md-12 d-flex">
-								<p class="mb-4 col-md-6 me-3">Follow the quick steps below to create and download professional Google review cards. Print them at any local printing shop and start using them to increase your online reputation!</p>
-								<iframe width="420" height="315" class="col-md-6"
-								src="https://www.youtube.com/embed/tgbNymZ7vqY">
-								</iframe>
-								
-							</div> -->
 							<span class="steps mb-2 mt-2 ms-2">1</span>
-							<label for="url" class="form-label">Enter Your Google Review URL:</label>
+							<label for="url" class="form-label"
+								>Enter Your Google Review URL:</label
+							>
 							<input
 								type="text"
 								id="url"
@@ -350,9 +98,9 @@
 						<div class="mb-3">
 							<span class="steps mt-2 ms-2">2</span>
 							<label class="form-label">Select Design:</label>
-							<div class="design-options-container">
+							<div class="design-options-container ">
 								<!-- Design Option 1 -->
-								<div class="design-option">
+								<div class="design-option ">
 									<input
 										type="radio"
 										id="design1"
@@ -362,7 +110,9 @@
 									/>
 									<label for="design1">
 										<img src="Review cards-01.png" alt="Design 1" />
-										<small class="d-block text-center mt-2 fs-6">Gray With Website</small>
+										<small class="d-block text-center mt-2 fs-6"
+											>Gray With Website</small
+										>
 									</label>
 								</div>
 								<!-- Design Option 2 -->
@@ -375,7 +125,9 @@
 									/>
 									<label for="design2">
 										<img src="Review cards-02.png" alt="Design 2" />
-										<small class="d-block text-center mt-2 fs-6">Blue With Website</small>
+										<small class="d-block text-center mt-2 fs-6"
+											>Blue With Website</small
+										>
 									</label>
 								</div>
 								<!-- Design Option 3 -->
@@ -388,7 +140,9 @@
 									/>
 									<label for="design3">
 										<img src="Review cards-03.png" alt="Design 3" />
-										<small class="d-block text-center mt-2 fs-6">White With Logo</small>
+										<small class="d-block text-center mt-2 fs-6"
+											>White With Logo</small
+										>
 									</label>
 								</div>
 								<!-- Design Option 4 -->
@@ -401,7 +155,9 @@
 									/>
 									<label for="design4">
 										<img src="Review cards-04.png" alt="Design 4" />
-										<small class="d-block text-center mt-2 fs-6">Gray with Logo</small>
+										<small class="d-block text-center mt-2 fs-6"
+											>Gray with Logo</small
+										>
 									</label>
 								</div>
 								<!-- Design Option 5 -->
@@ -414,7 +170,9 @@
 									/>
 									<label for="design5">
 										<img src="Review cards-05.png" alt="Design 5" />
-										<small class="d-block text-center mt-2 fs-6">Ivory With Logo</small>
+										<small class="d-block text-center mt-2 fs-6"
+											>Ivory With Logo</small
+										>
 									</label>
 								</div>
 							</div>
@@ -438,13 +196,13 @@
 						<div class="mb-3" id="website-input-section">
 							<span class="steps mb-2 ms-2">3</span>
 							<label for="website-text" class="form-label"
-								>Enter Your Website URL</label
+								>Enter Your Custom Text </label
 							>
 							<input
 								type="text"
 								id="website-text"
 								class="form-control mt-2"
-								placeholder="www.example.com"
+								placeholder="website url/business name/other"
 							/>
 						</div>
 					</form>
@@ -467,25 +225,39 @@
 							/>
 						</div>
 						<!-- Guide Overlay -->
-						<img id="guide-overlay" src="new-guide-07.png" alt="Guide Overlay" />
+						<img
+							id="guide-overlay"
+							src="new-guide-07.png"
+							alt="Guide Overlay"
+						/>
 						<div id="website-preview"></div>
 					</div>
 					<!-- Download button -->
 					<div class="d-flex justify-content-center align-items-center">
 						<span class="steps mt-3">4</span>
 						<button
-						id="download-btn"
-						class="btn mt-3 btn-success bttn "
-						style="display: inline-block"
-					>
-					Download as PDF 
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-download pb-1" viewBox="0 0 16 16">
-						<path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-						<path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-					</svg>
-					</button>
+							id="download-btn"
+							class="btn mt-3 btn-success bttn"
+							style="display: inline-block"
+						>
+							Download as PDF
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="18"
+								height="18"
+								fill="currentColor"
+								class="bi bi-download pb-1"
+								viewBox="0 0 16 16"
+							>
+								<path
+									d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"
+								/>
+								<path
+									d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"
+								/>
+							</svg>
+						</button>
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -499,266 +271,267 @@
 
 		<script>
 			const qrcodeDiv = document.getElementById("qrcode");
-const cardBackground = document.getElementById("card-background");
-const downloadBtn = document.getElementById("download-btn");
-const logoUploadSection = document.getElementById("logo-upload-section");
-const logoUploadInput = document.getElementById("logo-upload");
-const logoPreview = document.getElementById("logo-preview");
-const urlInput = document.getElementById("url");
-const websiteInputSection = document.getElementById("website-input-section");
-const websiteTextInput = document.getElementById("website-text");
-const websitePreview = document.getElementById("website-preview");
+			const cardBackground = document.getElementById("card-background");
+			const downloadBtn = document.getElementById("download-btn");
+			const logoUploadSection = document.getElementById("logo-upload-section");
+			const logoUploadInput = document.getElementById("logo-upload");
+			const logoPreview = document.getElementById("logo-preview");
+			const urlInput = document.getElementById("url");
+			const websiteInputSection = document.getElementById(
+				"website-input-section"
+			);
+			const websiteTextInput = document.getElementById("website-text");
+			const websitePreview = document.getElementById("website-preview");
 
-let highResQRCodeDataURL = "";
-let logoDataURL = "";
-let qrCode;
-let designSupportsLogo = false;
+			let highResQRCodeDataURL = "";
+			let logoDataURL = "";
+			let qrCode;
+			let designSupportsLogo = false;
 
-const designRadios = document.getElementsByName("design");
+			const designRadios = document.getElementsByName("design");
 
-// On page load
-window.addEventListener("load", function() {
-    // Select "Design 1" by default
-    const defaultDesign = document.getElementById("design1");
-    defaultDesign.checked = true;
-    
-    // Update the card background and show the website input section
-    cardBackground.src = defaultDesign.value;
-    cardBackground.style.opacity = "1"; // Make the image visible
-    
-    websiteInputSection.style.display = "block";
-    websitePreview.style.display = "block";
+			// On page load
+			window.addEventListener("load", function () {
+				// Select "Design 1" by default
+				const defaultDesign = document.getElementById("design1");
+				defaultDesign.checked = true;
 
-    // Generate QR code for default URL
-    const defaultURL = urlInput.value.trim();
-    if (defaultURL) {
-        generateQRCode(defaultURL);
-        generateHighResQRCode(defaultURL);
-        downloadBtn.style.display = "inline-block";
-    }
-});
+				// Update the card background and show the website input section
+				cardBackground.src = defaultDesign.value;
+				cardBackground.style.opacity = "1"; // Make the image visible
 
-// When a design is selected, make the background visible
-Array.from(designRadios).forEach((radio) => {
-    radio.addEventListener("change", function() {
-        designSupportsLogo =
-            radio.id === "design3" ||
-            radio.id === "design4" ||
-            radio.id === "design5";
-        
-        if (designSupportsLogo) {
-            logoUploadSection.style.display = "block";
-            if (logoDataURL) {
-                logoPreview.style.display = "block";
-            }
-            websiteInputSection.style.display = "none";
-            websitePreview.style.display = "none";
-        } else {
-            logoUploadSection.style.display = "none";
-            logoPreview.style.display = "none";
-            if (radio.id === "design1" || radio.id === "design2") {
-                websiteInputSection.style.display = "block";
-                websitePreview.style.display = "block";
-            } else {
-                websiteInputSection.style.display = "none";
-                websitePreview.style.display = "none";
-            }
-        }
-        
-        // Update the image source and make it visible
-        cardBackground.src = radio.value;
-        cardBackground.style.opacity = "1"; // Make the image visible
-    });
-});
+				websiteInputSection.style.display = "block";
+				websitePreview.style.display = "block";
 
-logoUploadInput.addEventListener("change", function (e) {
-    const file = e.target.files[0];
-    if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            logoDataURL = event.target.result;
-            if (designSupportsLogo) {
-                logoPreview.src = logoDataURL;
-                logoPreview.style.display = "block";
-            }
-        };
-        reader.readAsDataURL(file);
-    } else {
-        alert("Please upload a valid PNG or JPEG image.");
-        logoUploadInput.value = "";
-    }
-});
+				// Generate QR code for default URL
+				const defaultURL = urlInput.value.trim();
+				if (defaultURL) {
+					generateQRCode(defaultURL);
+					generateHighResQRCode(defaultURL);
+					downloadBtn.style.display = "inline-block";
+				}
+			});
 
-websiteTextInput.addEventListener("input", function () {
-    websitePreview.textContent = websiteTextInput.value.trim();
-});
+			// When a design is selected, make the background visible
+			Array.from(designRadios).forEach((radio) => {
+				radio.addEventListener("change", function () {
+					designSupportsLogo =
+						radio.id === "design3" ||
+						radio.id === "design4" ||
+						radio.id === "design5";
 
-function generateQRCode(url) {
-    qrcodeDiv.innerHTML = "";
-    const qrSize = 118;
-    qrCode = new QRCode(qrcodeDiv, {
-        text: url,
-        width: qrSize,
-        height: qrSize,
-        correctLevel: QRCode.CorrectLevel.H,
-    });
-}
+					if (designSupportsLogo) {
+						logoUploadSection.style.display = "block";
+						if (logoDataURL) {
+							logoPreview.style.display = "block";
+						}
+						websiteInputSection.style.display = "none";
+						websitePreview.style.display = "none";
+					} else {
+						logoUploadSection.style.display = "none";
+						logoPreview.style.display = "none";
+						if (radio.id === "design1" || radio.id === "design2") {
+							websiteInputSection.style.display = "block";
+							websitePreview.style.display = "block";
+						} else {
+							websiteInputSection.style.display = "none";
+							websitePreview.style.display = "none";
+						}
+					}
 
-urlInput.addEventListener("input", function () {
-    const url = urlInput.value.trim();
-    if (url) {
-        generateQRCode(url);
-        generateHighResQRCode(url);
-        downloadBtn.style.display = "inline-block";
-    } else {
-        qrcodeDiv.innerHTML = "";
-        downloadBtn.style.display = "none";
-        highResQRCodeDataURL = "";
-    }
-});
+					// Update the image source and make it visible
+					cardBackground.src = radio.value;
+					cardBackground.style.opacity = "1"; // Make the image visible
+				});
+			});
 
-async function generateHighResQRCode(url) {
-    if (!url) {
-        highResQRCodeDataURL = "";
-        return;
-    }
+			logoUploadInput.addEventListener("change", function (e) {
+				const file = e.target.files[0];
+				if (file && (file.type === "image/png" || file.type === "image/jpeg")) {
+					const reader = new FileReader();
+					reader.onload = function (event) {
+						logoDataURL = event.target.result;
+						if (designSupportsLogo) {
+							logoPreview.src = logoDataURL;
+							logoPreview.style.display = "block";
+						}
+					};
+					reader.readAsDataURL(file);
+				} else {
+					alert("Please upload a valid PNG or JPEG image.");
+					logoUploadInput.value = "";
+				}
+			});
 
-    return new Promise((resolve, reject) => {
-        const hiddenDiv = document.createElement("div");
-        hiddenDiv.style.display = "none";
-        document.body.appendChild(hiddenDiv);
+			websiteTextInput.addEventListener("input", function () {
+				websitePreview.textContent = websiteTextInput.value.trim();
+			});
 
-        const dpi = 300;
-        const inchToPx = dpi;
-        const canvasWidth = 2.12 * inchToPx;
-        const qrSize = (118 / 250) * canvasWidth;
+			function generateQRCode(url) {
+				qrcodeDiv.innerHTML = "";
+				const qrSize = 118;
+				qrCode = new QRCode(qrcodeDiv, {
+					text: url,
+					width: qrSize,
+					height: qrSize,
+					correctLevel: QRCode.CorrectLevel.H,
+				});
+			}
 
-        new QRCode(hiddenDiv, {
-            text: url,
-            width: qrSize,
-            height: qrSize,
-            correctLevel: QRCode.CorrectLevel.H,
-        });
+			urlInput.addEventListener("input", function () {
+				const url = urlInput.value.trim();
+				if (url) {
+					generateQRCode(url);
+					generateHighResQRCode(url);
+					downloadBtn.style.display = "inline-block";
+				} else {
+					qrcodeDiv.innerHTML = "";
+					downloadBtn.style.display = "none";
+					highResQRCodeDataURL = "";
+				}
+			});
 
-        setTimeout(() => {
-            try {
-                const qrCanvas = hiddenDiv.querySelector("canvas");
-                if (qrCanvas) {
-                    highResQRCodeDataURL = qrCanvas.toDataURL("image/png");
-                    document.body.removeChild(hiddenDiv);
-                    resolve();
-                } else {
-                    throw new Error("QR code canvas not found.");
-                }
-            } catch (error) {
-                console.error("Error generating high-res QR code:", error);
-                reject(error);
-            }
-        }, 500);
-    });
-}
+			async function generateHighResQRCode(url) {
+				if (!url) {
+					highResQRCodeDataURL = "";
+					return;
+				}
 
-downloadBtn.addEventListener("click", async function () {
-    const url = urlInput.value.trim();
-    const websiteText = websiteTextInput.value.trim();
+				return new Promise((resolve, reject) => {
+					const hiddenDiv = document.createElement("div");
+					hiddenDiv.style.display = "none";
+					document.body.appendChild(hiddenDiv);
 
-    if (!highResQRCodeDataURL || !url) {
-        alert("Please enter a valid URL to generate the QR code.");
-        return;
-    }
+					const dpi = 300;
+					const inchToPx = dpi;
+					const canvasWidth = 2.12 * inchToPx;
+					const qrSize = (118 / 250) * canvasWidth;
 
-    const dpi = 300;
-    const inchToPx = dpi;
-    const canvasWidth = 2.12 * inchToPx;
-    const canvasHeight = 3.62 * inchToPx;
+					new QRCode(hiddenDiv, {
+						text: url,
+						width: qrSize,
+						height: qrSize,
+						correctLevel: QRCode.CorrectLevel.H,
+					});
 
-    const canvas = document.createElement("canvas");
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
-    const ctx = canvas.getContext("2d");
+					setTimeout(() => {
+						try {
+							const qrCanvas = hiddenDiv.querySelector("canvas");
+							if (qrCanvas) {
+								highResQRCodeDataURL = qrCanvas.toDataURL("image/png");
+								document.body.removeChild(hiddenDiv);
+								resolve();
+							} else {
+								throw new Error("QR code canvas not found.");
+							}
+						} catch (error) {
+							console.error("Error generating high-res QR code:", error);
+							reject(error);
+						}
+					}, 500);
+				});
+			}
 
-    const backgroundImg = new Image();
-    backgroundImg.crossOrigin = "Anonymous";
-    backgroundImg.src = cardBackground.src;
-    backgroundImg.onload = function () {
-        ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+			downloadBtn.addEventListener("click", async function () {
+				const url = urlInput.value.trim();
+				const websiteText = websiteTextInput.value.trim();
 
-        if (designSupportsLogo && logoDataURL) {
-            const logoImg = new Image();
-            logoImg.src = logoDataURL;
-            logoImg.onload = function () {
-                const logoMaxWidth = canvasWidth * 0.7;
-                const logoMaxHeight = canvasHeight * 0.15;
-                let logoWidth = logoImg.width;
-                let logoHeight = logoImg.height;
+				if (!highResQRCodeDataURL || !url) {
+					alert("Please enter a valid URL to generate the QR code.");
+					return;
+				}
 
-                const widthRatio = logoMaxWidth / logoWidth;
-                const heightRatio = logoMaxHeight / logoHeight;
-                const minRatio = Math.min(widthRatio, heightRatio);
+				const dpi = 300;
+				const inchToPx = dpi;
+				const canvasWidth = 2.12 * inchToPx;
+				const canvasHeight = 3.62 * inchToPx;
 
-                logoWidth *= minRatio;
-                logoHeight *= minRatio;
+				const canvas = document.createElement("canvas");
+				canvas.width = canvasWidth;
+				canvas.height = canvasHeight;
+				const ctx = canvas.getContext("2d");
 
-                const logoX = (canvasWidth - logoWidth) / 2;
-                const logoY = canvasHeight * 0.07;
-                ctx.drawImage(logoImg, logoX, logoY, logoWidth, logoHeight);
+				const backgroundImg = new Image();
+				backgroundImg.crossOrigin = "Anonymous";
+				backgroundImg.src = cardBackground.src;
+				backgroundImg.onload = function () {
+					ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
 
-                drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
-            };
-        } else {
-            drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
-        }
-    };
+					if (designSupportsLogo && logoDataURL) {
+						const logoImg = new Image();
+						logoImg.src = logoDataURL;
+						logoImg.onload = function () {
+							const logoMaxWidth = canvasWidth * 0.7;
+							const logoMaxHeight = canvasHeight * 0.15;
+							let logoWidth = logoImg.width;
+							let logoHeight = logoImg.height;
 
-    function drawQRCode(ctx, canvasWidth, canvasHeight, websiteText) {
-        const qrImg = new Image();
-        qrImg.crossOrigin = "Anonymous";
-        qrImg.src = highResQRCodeDataURL;
-        qrImg.onload = async function () {
-            const qrSize = (118 / 250) * canvasWidth;
-            const qrX = (canvasWidth - qrSize) / 2;
-            const qrY = (canvasHeight - qrSize) / 2;
-            ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
+							const widthRatio = logoMaxWidth / logoWidth;
+							const heightRatio = logoMaxHeight / logoHeight;
+							const minRatio = Math.min(widthRatio, heightRatio);
 
-            if (websiteText) {
-                ctx.font = "400 25px Manrope";
-                ctx.textAlign = "center";
-                ctx.fillStyle = "#ffffff";
-                ctx.fillText(websiteText, canvasWidth / 2, canvasHeight * 0.94);
-            }
+							logoWidth *= minRatio;
+							logoHeight *= minRatio;
 
-            const imgData = canvas.toDataURL("image/png", 1.0);
-            const pdfDoc = await PDFLib.PDFDocument.create();
+							const logoX = (canvasWidth - logoWidth) / 2;
+							const logoY = canvasHeight * 0.07;
+							ctx.drawImage(logoImg, logoX, logoY, logoWidth, logoHeight);
 
-            const pageWidth = 2.12 * 72;
-            const pageHeight = 3.62 * 72;
+							drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
+						};
+					} else {
+						drawQRCode(ctx, canvasWidth, canvasHeight, websiteText);
+					}
+				};
 
-            const page = pdfDoc.addPage([pageWidth, pageHeight]);
+				function drawQRCode(ctx, canvasWidth, canvasHeight, websiteText) {
+					const qrImg = new Image();
+					qrImg.crossOrigin = "Anonymous";
+					qrImg.src = highResQRCodeDataURL;
+					qrImg.onload = async function () {
+						const qrSize = (118 / 250) * canvasWidth;
+						const qrX = (canvasWidth - qrSize) / 2;
+						const qrY = (canvasHeight - qrSize) / 2;
+						ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
 
-            const pngImage = await pdfDoc.embedPng(imgData);
+						if (websiteText) {
+							ctx.font = "400 25px Manrope";
+							ctx.textAlign = "center";
+							ctx.fillStyle = "#ffffff";
+							ctx.fillText(websiteText, canvasWidth / 2, canvasHeight * 0.94);
+						}
 
-            page.drawImage(pngImage, {
-                x: 0,
-                y: 0,
-                width: pageWidth,
-                height: pageHeight,
-            });
+						const imgData = canvas.toDataURL("image/png", 1.0);
+						const pdfDoc = await PDFLib.PDFDocument.create();
 
-            const pdfBytes = await pdfDoc.save();
+						const pageWidth = 2.12 * 72;
+						const pageHeight = 3.62 * 72;
 
-            const blob = new Blob([pdfBytes], { type: "application/pdf" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "business_card.pdf";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        };
-    }
-});
+						const page = pdfDoc.addPage([pageWidth, pageHeight]);
 
+						const pngImage = await pdfDoc.embedPng(imgData);
+
+						page.drawImage(pngImage, {
+							x: 0,
+							y: 0,
+							width: pageWidth,
+							height: pageHeight,
+						});
+
+						const pdfBytes = await pdfDoc.save();
+
+						const blob = new Blob([pdfBytes], { type: "application/pdf" });
+						const url = URL.createObjectURL(blob);
+						const a = document.createElement("a");
+						a.href = url;
+						a.download = "business_card.pdf";
+						document.body.appendChild(a);
+						a.click();
+						document.body.removeChild(a);
+						URL.revokeObjectURL(url);
+					};
+				}
+			});
 		</script>
 	</body>
 </html>

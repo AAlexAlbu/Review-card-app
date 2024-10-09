@@ -1,0 +1,230 @@
+body {
+				
+    background: #eae8e8;
+    font-family: rubik;
+    padding: 0;
+    margin:0;
+    font-size: 20px;
+}
+
+#card-preview {
+    width: 280px;
+    height: 457px;
+    position: relative;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#card-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+#logo-preview {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 70%;
+    max-height: 15%;
+    display: none;
+}
+
+#qrcode {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 118px;
+    height: 118px;
+}
+
+#guide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.design-option img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+    width: 150px;
+}
+
+.design-option input[type="radio"] {
+    display: none;
+}
+
+.design-option input[type="radio"]:checked + label img {
+    border-color: #a47f4e;
+}
+
+.design-option label {
+    display: block;
+    text-align: center;
+}
+
+.design-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.design-option {
+    flex: 1 1 calc(20% - 10px);
+    margin: 5px;
+    text-align: center;
+}
+
+#website-input-section {
+    display: none;
+    margin-top: 10px;
+}
+
+#website-preview {
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Manrope", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+}
+
+#logo {
+    width: 125px;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.navbar {   
+    background: linear-gradient(90deg, rgba(14,23,40,1) 0%, rgba(39,61,95,1) 100%);
+    height:80px;
+    
+}
+
+.title {
+    color: #a47f4e;
+    font-family: josefin sans;
+    font-size: 38px;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: rubik;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.form-label {
+    font-family: rubik;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+input {
+    font-family: rubik;
+    font-weight: 400;
+}
+
+.bttn {
+    display: inline-block;
+    font-family: "Josefin Sans", Sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    fill: #FFFFFF;
+    color: #000000;
+    background-color: transparent;
+    background-image: radial-gradient(at center center, #ffeaa2 0%, #b18c5b 100%);
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    padding-top: 10px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.bttn:hover {
+    color: #000000;
+    background-image: radial-gradient(at center center,#ffeaa2 0%, #cfad85 100%);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transform: translateY(1px);
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.steps {
+        color: #ffffff;
+        display: inline-block; 
+        width: 30px;
+        height: 30px;   
+        text-align: center;   
+        line-height: 30px;   
+        background-color: #1d2d5e;
+        border-radius: 50%;
+        font-family: rubik;
+        margin-right: 10px;
+        
+    }
+
+    hr {
+        width: 10%;
+        border-top: 1px solid rgb(16, 35, 90, 0.25);
+        opacity: 100%;
+    }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 767px) {
+
+    .col-md-8,
+    .col-md-4 {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    #card-preview {
+        margin: 20px auto; /* Center the preview on mobile */
+    }
+
+    .navbar {
+        padding-bottom: 10px;
+    }
+
+    .card-body {
+        padding: 0;
+    }
+
+    .video {
+        padding-top: 20px;
+    }
+
+}
+
