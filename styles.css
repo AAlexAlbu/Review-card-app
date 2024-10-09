@@ -29,7 +29,8 @@ body {
 
 #logo-preview {
     position: absolute;
-    top: 9%;
+    /* top: 9%; */
+    margin-top: 43px;
     left: 50%;
     transform: translateX(-50%);
     max-width: 70%;
